@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Fantasy Card Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"> <!-- Added Google Font for a more leathery, fantasy feel -->
+    <style>
+        /* Old Leathery Book Style with Enhanced Brown/Leather Tones */
+        body {
+            font-family: 'Cinzel', 'Times New Roman', serif; /* Changed to Cinzel for a more medieval, leathery font */
+            background-color: #654321; /* Darker oak brown background */
+            color: #2f1b14; /* Deeper brown text for contrast */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(101, 67, 33, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 69, 19, 0.2) 0%, transparent 50%),
+                linear-gradient(45deg, #5c4033 0%, #654321 50%, #5c4033 100%); /* Darker oak-like gradient texture */
+            background-attachment: fixed;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.7);
+            background-color: rgba(222, 184, 135, 0.95); /* Slightly darker parchment for container */
+            border-radius: 15px;
+            border: 3px solid #8b4513; /* Saddle brown border for leather edge */
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 3px solid #a0522d; /* Sienna brown border */
+            background-color: rgba(160, 82, 45, 0.2); /* Subtle brown overlay */
+        }
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+            color: #8b4513; /* Saddle brown for headings */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Leather emboss effect */
+        }
+        section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #a0522d; /* Sienna border */
+            background-color: rgba(222, 184, 135, 0.9); /* Burlywood background for sections */
+            border-radius: 10px;
+        }
+        .rules {
+            font-style: italic;
+            color: #3e2a1f; /* Dark brown for rules text */
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            width: 200px;
+            text-align: center;
+            border: 3px solid #8b4513; /* Saddle brown border */
+            padding: 10px;
+            background-color: #deb887; /* Burlywood for card background */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Leather shadow */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            border: 1px solid #b1b2b5; 
+        }
+        .card a {
+            text-decoration: none;
+            color: #2f1b14; 
+            font-weight: bold;
+        }
+        .card-details {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(101, 67, 33, 0.9); /* Darker oak overlay for modal */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .card-details.show {
+            display: flex;
+        }
+        .detail-content {
+            background-color: #f4e4bc; /* Light parchment */
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            text-align: center;
+            border: 3px solid #8b4513;
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
+        }
+        .close-btn {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+            color: #8b4513;
+        }
+        /* Responsive for mobile */
+        @media (max-width: 768px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Fantasy Card Game</h1>
+        </header>
+
+        <section id="about">
+            <h2>About My Cards</h2>
+            <p>Welcome to my collection of fantasy cards! Each card represents powerful creatures, from a world of magic. Explore the rules below and dive into the details of each card.</p>
+        </section>
+
+        <section id="rules" class="rules">
+            <h2>Rules</h2>
+            <p>1. Build a deck of 15 cards minimum.<br>
+            2. Draw 7 cards at the start of the game.<br>
+            3. Place 2 cards of your choosing down for battle.<br>
+            4. Take turns attacking and replacing new cards as old ones are defeated<br>
+            5. The goal is to defeat every card in your opponents deck.<br>
+            6. Now prepare for battle and have fun!</p>
+        </section>
+
+        <section id="cards">
+            <h2>Card Collection</h2>
+            <div class="cards">
+                <!-- Card 1 -->
+                <div class="card">
+                    <img src="Hound finish.jpg" alt="Card 1"> 
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <img src="Imp finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <img src="Pride finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 4 -->
+                <div class="card">
+                    <img src="Wrath finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 5 -->
+                <div class="card">
+                    <img src="Temptress finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 6 -->
+                <div class="card">
+                    <img src="Eye finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 7 -->
+                <div class="card">
+                    <img src="nun finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 8 -->
+                <div class="card">
+                    <img src="cleric finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 9 -->
+                <div class="card">
+                    <img src="paladin finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 10 -->
+                <div class="card">
+                    <img src="cavalry finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 11 -->
+                <div class="card">
+                    <img src="bishop finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 12 -->
+                <div class="card">
+                    <img src="seraph finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 13 -->
+                <div class="card">
+                    <img src="soldiers finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 14 -->
+                <div class="card">
+                    <img src="vulture finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 15 -->
+                <div class="card">
+                    <img src="titan finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 16 -->
+                <div class="card">
+                    <img src="general finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 17 -->
+                <div class="card">
+                    <img src="Necromancer finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 18 -->
+                <div class="card">
+                    <img src="Dragon finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 19 -->
+                <div class="card">
+                    <img src="Longship finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 20 -->
+                <div class="card">
+                    <img src="Shieldmaiden finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 21 -->
+                <div class="card">
+                    <img src="Seer finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 22 -->
+                <div class="card">
+                    <img src="Berserker finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 23 -->
+                <div class="card">
+                    <img src="Jarl finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 24 -->
+                <div class="card">
+                    <img src="fenrir finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 25 -->
+                <div class="card">
+                    <img src="gary finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 26 -->
+                <div class="card">
+                    <img src="jelly finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 27 -->
+                <div class="card">
+                    <img src="squid finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 28 -->
+                <div class="card">
+                    <img src="nautilidae finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 29 -->
+                <div class="card">
+                    <img src="King crab finish.jpg" alt="Card 1">
+                </div>
+                <!-- Card 30 -->
+                <div class="card">
+                    <img src="Leviathan finish.jpg" alt="Card 1">
+                </div>
+                <!-- Add more cards as needed -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for card details -->
+    <div id="card-details" class="card-details">
+        <div class="detail-content">
+            <span class="close-btn" onclick="hideDetails()">&times;</span>
+            <h2 id="detail-title"></h2>
+            <img id="detail-img" src="" alt="Card Image" style="max-width: 100%; height: auto;">
+            <p id="detail-desc"></p>
+        </div>
+    </div>
+
+    <script>
